@@ -9,8 +9,10 @@ export default class NumberBlock extends Component {
   }
   render() {
     return (
-      <div>
-        <div>{this.props.label}</div>
+      <div style={{ flexDirection: "row", display: "flex", marginBottom: 10 }}>
+        {this.props.label && (
+          <div style={{ width: 200 }}>{this.props.label}</div>
+        )}
         <div>
           <input
             type="number"

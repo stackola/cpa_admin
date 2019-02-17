@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import CSSModules from "react-css-modules";
 import style from "./appContainer.less";
 
-
 import { Route, Link, withRouter, Switch, Redirect } from "react-router-dom";
 import firebase from "lib/firebase";
 import firebase2 from "firebase";
 import { getUID } from "lib";
 import { MdPlusOne, MdAdd, MdSearch } from "react-icons/md";
 import Home from "../Home";
+import NewProduct from "../NewProduct";
 
 @withRouter
 @CSSModules(style, { allowMultiple: true, handleNotFoundStyleName: "log" })
@@ -49,15 +49,15 @@ export default class AppContainer extends Component {
     });
   }
 
-
-
   render() {
     return !this.state.loading ? (
       <Switch>
-        <Route path="/">
-          <Home/>
+        <Route exact path="/">
+          <Home />
         </Route>
-        
+        <Route path="/newProduct">
+          <NewProduct />
+        </Route>
       </Switch>
     ) : (
       <div />

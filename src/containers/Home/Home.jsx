@@ -6,10 +6,6 @@ import JsonForm from "../../components/JsonForm/JsonForm";
 @CSSModules(style, { allowMultiple: true, handleNotFoundStyleName: "ignore" })
 export default class Home extends React.Component {
   render() {
-    return (
-      <div styleName="Home">
-        <JsonForm />
-      </div>
-    );
+    return <div styleName="Home">Home</div>;
   }
 }

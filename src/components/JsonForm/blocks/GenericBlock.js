@@ -4,6 +4,7 @@ import StringBlock from "./StringBlock";
 import CollectionBlock from "./CollectionBlock";
 import UserBlock from "./UserBlock";
 import NumberBlock from "./NumberBlock";
+import BoolBlock from "./BoolBlock";
 let blockConfig = {
   name: "user",
   label: "New User",
@@ -17,7 +18,15 @@ let blockConfig = {
     {
       block: StringBlock,
       name: "username3",
-      label: "User name1"
+      label: "User name111",
+      default: "hi"
+    },
+    {
+      block: BoolBlock,
+      name: "hasSomes",
+      label: "User name1",
+
+      default: true
     },
     {
       block: CollectionBlock,
@@ -36,7 +45,7 @@ export default class GenericBlock extends Component {
     };
   }
   valueChanged(v) {
-    this.props.setValue(this.props.name, v);
+    this.props.setValue(this.props.name, v, true);
   }
   setValue(k, v) {
     let newValue = { ...(this.props.value || {}), [k]: v };
@@ -49,8 +58,15 @@ export default class GenericBlock extends Component {
 
   render() {
     return (
-      <div>
-        <div>{this.state.blockConfig.label}</div>
+      <div
+        style={{
+          margin: 10,
+          border: "1px solid black",
+          padding: 5,
+          borderRadius: 4
+        }}
+      >
+        <div style={{ fontWeight: "bold" }}>{this.state.blockConfig.label}</div>
         <div>
           {this.state.blockConfig.fields.map((f, index) => {
             let Block = f.block;

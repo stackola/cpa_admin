@@ -13,11 +13,10 @@ export default class NumberBlock extends Component {
     return (
       <div style={{ flexDirection: "row", display: "flex", marginBottom: 10 }}>
         {this.props.label && (
-          <div style={{ width: 200 }}>{this.props.label}</div>
+          <div style={{ width: 200 }}>{this.props.label}!</div>
         )}
         <div>
-          <input
-            type="text"
+          <textarea
             value={this.props.value}
             onChange={e => {
               this.valueChanged(e.target.value);

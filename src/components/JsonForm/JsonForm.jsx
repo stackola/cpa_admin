@@ -6,6 +6,7 @@ import StringBlock from "./blocks/StringBlock";
 import CollectionBlock from "./blocks/CollectionBlock";
 import NumberBlock from "./blocks/NumberBlock";
 import GenericBlock from "./blocks/GenericBlock";
+import BoolBlock from "./blocks/BoolBlock";
 
 let tpl = {
   title: "New User",
@@ -17,19 +18,11 @@ let tpl = {
       default: "Hi"
     },
     {
-      block: StringBlock,
+      block: GenericBlock,
       name: "username3",
       label: "User name1"
     },
-    { block: NumberBlock, name: "username2", label: "User name", default: 29 },
-    { block: GenericBlock, name: "aUser" },
-    {
-      block: CollectionBlock,
-      of: GenericBlock,
-      defaultItem: {},
-      name: "coll1",
-      label: "User name"
-    }
+    { block: BoolBlock, name: "username2", label: "User name", default: false }
   ]
 };
 @CSSModules(style, { allowMultiple: true, handleNotFoundStyleName: "log" })
@@ -37,15 +30,13 @@ export default class JsonForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      values: {}
-    };
+    this.state = {};
   }
-  setValue(key, value) {
-    console.log(key, value);
+  setValue(key, value, merge) {
+    console.log(key, value, merge);
     this.setState(
       (state, props) => {
-        return { ...state, values: { ...state.values, [key]: value } };
+        return merge ? { ...(state || {}), ...value } : value;
       },
       () => {
         console.log(this.state);
@@ -54,21 +45,15 @@ export default class JsonForm extends React.Component {
   }
 
   render() {
+    let Block = this.props.root;
     return (
       <div styleName="JsonForm">
-        {tpl.fields.map((f, index) => {
-          let Block = f.block;
-          return (
-            <Block
-              key={index}
-              {...f}
-              setValue={(k, v) => {
-                this.setValue(k, v);
-              }}
-              value={this.state.values[f.name]}
-            />
-          );
-        })}
+        <Block
+          setValue={(k, v, merge) => {
+            this.setValue(k, v, merge);
+          }}
+          value={this.state}
+        />
       </div>
     );
   }
