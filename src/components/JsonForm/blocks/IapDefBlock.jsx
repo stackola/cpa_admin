@@ -19,7 +19,6 @@ let blockConfig = {
       name: "id",
       label: "id"
     },
-
     {
       name: "contents",
       label: "Contents",

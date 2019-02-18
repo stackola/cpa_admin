@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 
 export default class OptionsBlock extends Component {
-  componentDidMount() {
-    console.log("MOUNTTT!");
-    this.valueChanged(this.props.default || "");
-  }
+  componentDidMount() {}
   valueChanged(v) {
     this.props.setValue(this.props.name, v);
   }
@@ -22,6 +19,9 @@ export default class OptionsBlock extends Component {
               this.valueChanged(e.target.value);
             }}
           >
+            <option key={"null"} value={"no!"}>
+              PICK ONE!
+            </option>
             {this.props.options.map(o => {
               return (
                 <option key={o} value={o}>

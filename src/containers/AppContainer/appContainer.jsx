@@ -9,6 +9,7 @@ import { getUID } from "lib";
 import { MdPlusOne, MdAdd, MdSearch } from "react-icons/md";
 import Home from "../Home";
 import NewProduct from "../NewProduct";
+import NewCrate from "../../components/NewCrate/NewCrate";
 
 @withRouter
 @CSSModules(style, { allowMultiple: true, handleNotFoundStyleName: "log" })
@@ -17,40 +18,47 @@ export default class AppContainer extends Component {
     super(props);
 
     this.state = {
-      loading: false
+      loggedIn: false
     };
   }
 
-  _componentDidMount() {
+  componentDidMount() {
     firebase.auth().onAuthStateChanged(a => {
       console.log("THAT CHANGE!", a);
-      if (!a) {
-        console.log("no user!");
-        firebase
-          .auth()
-          .setPersistence(firebase2.auth.Auth.Persistence.LOCAL)
-          .then(() => {
-            firebase
-              .auth()
-              .signInAnonymously()
-              .then(() => {
-                console.log("okayy");
-                this.setState({ loading: false });
-              })
-              .catch(function(error) {
-                console.log("login failed", error);
-              });
-          });
-      } else {
-        console.log("user already");
-        //this.linkEmail();
-        this.setState({ loading: false });
+      if (a.uid == "AqQVcObSssQRkAc5nYTOb2oSbBI3") {
+        this.setState({ loggedIn: true });
       }
     });
   }
 
+  signInWithGoogle() {
+    var provider = new firebase2.auth.GoogleAuthProvider();
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then(function(result) {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        var token = result.credential.accessToken;
+        // The signed-in user info.
+        var user = result.user;
+        console.log(result);
+        // ...
+      })
+      .catch(function(error) {
+        console.log(error);
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // The email of the user's account used.
+        var email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        var credential = error.credential;
+        // ...
+      });
+  }
+
   render() {
-    return !this.state.loading ? (
+    return this.state.loggedIn ? (
       <Switch>
         <Route exact path="/">
           <Home />
@@ -58,9 +66,20 @@ export default class AppContainer extends Component {
         <Route path="/newProduct">
           <NewProduct />
         </Route>
+        <Route path="/newCrate">
+          <NewCrate />
+        </Route>
       </Switch>
     ) : (
-      <div />
+      <div>
+        <div
+          onClick={() => {
+            this.signInWithGoogle();
+          }}
+        >
+          Log in
+        </div>
+      </div>
     );
   }
 }

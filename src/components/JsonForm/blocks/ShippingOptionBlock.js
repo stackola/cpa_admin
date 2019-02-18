@@ -18,7 +18,6 @@ let blockConfig = {
     {
       block: NumberBlock,
       name: "price",
-      default: 12,
       label: "Price"
     },
     {
@@ -29,8 +28,7 @@ let blockConfig = {
     {
       block: BoolBlock,
       name: "tracking",
-      label: "Tracking",
-      default: false
+      label: "Tracking"
     }
   ]
 };

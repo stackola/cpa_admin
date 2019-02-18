@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 
 export default class NumberBlock extends Component {
-  componentDidMount() {
-    console.log("MOUNTTT!");
-    this.valueChanged(this.props.default || "");
-  }
+  componentDidMount() {}
   valueChanged(v) {
     this.props.setValue(this.props.name, v);
   }

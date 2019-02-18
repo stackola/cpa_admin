@@ -17,7 +17,6 @@ let blockConfig = {
       name: "sku",
       label: "sku"
     },
-
     {
       block: NumberBlock,
       name: "count",

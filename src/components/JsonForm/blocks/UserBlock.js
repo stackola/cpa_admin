@@ -12,8 +12,7 @@ let blockConfig = {
     {
       block: StringBlock,
       name: "username",
-      label: "User name1",
-      default: "Hi"
+      label: "User name1"
     },
     {
       block: StringBlock,

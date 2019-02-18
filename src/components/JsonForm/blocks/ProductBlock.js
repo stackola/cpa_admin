@@ -32,8 +32,13 @@ let blockConfig = {
     {
       block: OptionsBlock,
       options: ["Gadgets", "Fashion", "Technology", "Toys"],
-      name: "categroy",
+      name: "category",
       label: "Category"
+    },
+    {
+      block: NumberBlock,
+      name: "popularity",
+      label: "popularity"
     },
     {
       block: ImageBlock,
@@ -52,7 +57,11 @@ let blockConfig = {
       label: "Shipping Options",
       block: CollectionBlock,
       of: ShippingOptionBlock,
-      defaultItem: {}
+      defaultItem: {
+        name: "Free shipping",
+        price: 0,
+        time: "4-5 weeks"
+      }
     }
   ]
 };

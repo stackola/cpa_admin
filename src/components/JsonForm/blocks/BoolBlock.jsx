@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 export default class BoolBlock extends Component {
   componentDidMount() {
-    this.valueChanged(this.props.default || false);
   }
   valueChanged(v) {
     this.props.setValue(this.props.name, v);

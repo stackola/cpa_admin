@@ -26,15 +26,12 @@ let blockConfig = {
     {
       block: BoolBlock,
       name: "active",
-      label: "Active",
-      default: true
+      label: "Active"
     },
-
     {
       block: BoolBlock,
       name: "continous",
-      label: "Continous",
-      default: false
+      label: "Continous"
     },
     {
       block: NumberBlock,

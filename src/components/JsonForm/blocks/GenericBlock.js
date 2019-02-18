@@ -18,15 +18,12 @@ let blockConfig = {
     {
       block: StringBlock,
       name: "username3",
-      label: "User name111",
-      default: "hi"
+      label: "User name111"
     },
     {
       block: BoolBlock,
       name: "hasSomes",
-      label: "User name1",
-
-      default: true
+      label: "User name1"
     },
     {
       block: CollectionBlock,

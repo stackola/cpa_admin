@@ -43,7 +43,15 @@ export default class JsonForm extends React.Component {
       }
     );
   }
-
+  save() {
+    if (this.props.validate) {
+      this.props.validate(this.state) &&
+        this.props.save &&
+        this.props.save(this.state);
+    } else {
+      this.props.save && this.props.save(this.state);
+    }
+  }
   render() {
     let Block = this.props.root;
     return (
@@ -54,6 +62,29 @@ export default class JsonForm extends React.Component {
           }}
           value={this.state}
         />
+        <div
+          onClick={() => {
+            this.save();
+          }}
+          style={{
+            minWidth: 100,
+            paddingLeft: 20,
+            maxWidth: 500,
+            paddingRight: 20,
+            height: 40,
+            borderRadius: 4,
+            marginLeft: 10,
+            background: "hsla(130,100%,33%,1)",
+            color: "white",
+            cursor: "pointer",
+            display: "flex",
+            fontWeight: "bold",
+            alignItems: "center",
+            justifyContent: "center"
+          }}
+        >
+          Speichern
+        </div>
       </div>
     );
   }
