@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import StringBlock from "./StringBlock";
 import CollectionBlock from "./CollectionBlock";
 import NumberBlock from "./NumberBlock";
+import BoolBlock from "./BoolBlock";
 import GenericBlock from "./GenericBlock";
 
 let blockConfig = {
@@ -11,13 +12,33 @@ let blockConfig = {
   fields: [
     {
       block: StringBlock,
-      name: "username",
-      label: "User name1"
+      name: "address",
+      label: "Address"
+    },
+    {
+      block: NumberBlock,
+      name: "coins",
+      label: "Coins"
     },
     {
       block: StringBlock,
-      name: "username3",
-      label: "User name1"
+      name: "friend",
+      label: "Friend?"
+    },
+    {
+      block: BoolBlock,
+      name: "notificationsEnabled",
+      label: "Notis?"
+    },
+    {
+      block: StringBlock,
+      name: "time",
+      label: "Time"
+    },
+    {
+      block: StringBlock,
+      name: "token",
+      label: "Token?"
     }
   ]
 };

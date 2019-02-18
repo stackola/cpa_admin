@@ -35,6 +35,9 @@ export default class JsonForm extends React.Component {
     this.state = {};
   }
   setValue(key, value, merge) {
+    if (this.props.readOnly) {
+      return;
+    }
     console.log(key, value, merge);
     this.setState(
       (state, props) => {
@@ -55,6 +58,9 @@ export default class JsonForm extends React.Component {
       });
   }
   save() {
+    if (this.props.readOnly) {
+      return;
+    }
     if (this.props.validate) {
       this.props.validate(this.state) &&
         this.props.save &&

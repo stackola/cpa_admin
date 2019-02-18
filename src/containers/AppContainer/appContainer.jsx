@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import CSSModules from "react-css-modules";
 import style from "./appContainer.less";
 
-import { Route, Link, withRouter, Switch, Redirect } from "react-router-dom";
 import firebase from "lib/firebase";
+import { Route, Link, withRouter, Switch, Redirect } from "react-router-dom";
 import firebase2 from "firebase";
 import { getUID } from "lib";
 import { MdPlusOne, MdAdd, MdSearch } from "react-icons/md";
@@ -11,7 +11,13 @@ import Home from "../Home";
 import NewProduct from "../NewProduct";
 import NewCrate from "../../components/NewCrate/NewCrate";
 import EditCrate from "../EditCrate/EditCrate";
+import UserList from "../UserList/UserList";
 import EditProduct from "../EditProduct/EditProduct";
+import Products from "../Products/Products";
+import Crates from "../Crates/Crates";
+import User from "../User/User";
+import Orders from "../Orders/Orders";
+import Order from "../Order/Order";
 
 @withRouter
 @CSSModules(style, { allowMultiple: true, handleNotFoundStyleName: "log" })
@@ -73,6 +79,24 @@ export default class AppContainer extends Component {
         </Route>
         <Route path="/editProduct/:id">
           <EditProduct />
+        </Route>
+        <Route path="/user/:id">
+          <User />
+        </Route>
+        <Route path="/users">
+          <UserList />
+        </Route>
+        <Route path="/products">
+          <Products />
+        </Route>
+        <Route path="/crates">
+          <Crates />
+        </Route>
+        <Route path="/orders">
+          <Orders />
+        </Route>
+        <Route path="/order/:id">
+          <Order />
         </Route>
         <Route>
           <Home />

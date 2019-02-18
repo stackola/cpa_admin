@@ -6,6 +6,7 @@ import JsonForm from "../../components/JsonForm/JsonForm";
 import ProductBlock from "../../components/JsonForm/blocks/ProductBlock";
 import firebase from "lib/firebase";
 import { withRouter } from "react-router";
+import FirebaseTable from "../../components/FirebaseTable/FirebaseTable";
 @CSSModules(style, { allowMultiple: true, handleNotFoundStyleName: "ignore" })
 export class EditProduct extends React.Component {
   saveProd(v) {
@@ -29,6 +30,11 @@ export class EditProduct extends React.Component {
             this.saveProd(v);
           }}
           validate={validateProd}
+        />
+        <FirebaseTable
+          path={"products/" + id + "/reviews"}
+          fields={["rating", "text", "shippingTime"]}
+          linkTo={""}
         />
       </div>
     );
