@@ -6,6 +6,7 @@ import NumberBlock from "./NumberBlock";
 import ShippingOptionBlock from "./ShippingOptionBlock";
 import GenericBlock from "./GenericBlock";
 import BoolBlock from "./BoolBlock";
+import OptionsBlock from "./OptionsBlock";
 import ImageBlock from "./ImageBlock";
 import TextBlock from "./TextBlock";
 
@@ -19,9 +20,10 @@ let blockConfig = {
       label: "Name"
     },
     {
-      block: StringBlock,
+      block: OptionsBlock,
       name: "type",
-      label: "Type (coins, product, crate)"
+      options: ["coins", "product", "crate"],
+      label: "Type"
     },
 
     {

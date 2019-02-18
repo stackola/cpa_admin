@@ -7,6 +7,7 @@ import ShippingOptionBlock from "./ShippingOptionBlock";
 import GenericBlock from "./GenericBlock";
 import BoolBlock from "./BoolBlock";
 import ImageBlock from "./ImageBlock";
+import OptionsBlock from "./OptionsBlock";
 import TextBlock from "./TextBlock";
 
 let blockConfig = {
@@ -29,10 +30,10 @@ let blockConfig = {
       label: "Price"
     },
     {
-      block: StringBlock,
+      block: OptionsBlock,
+      options: ["Gadgets", "Fashion", "Technology", "Toys"],
       name: "categroy",
-      label: "Category",
-      default: "Gadgets"
+      label: "Category"
     },
     {
       block: ImageBlock,

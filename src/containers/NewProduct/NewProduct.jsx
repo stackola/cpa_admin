@@ -6,12 +6,14 @@ import ProductBlock from "../../components/JsonForm/blocks/ProductBlock";
 import ChallengeBlock from "../../components/JsonForm/blocks/ChallengeBlock";
 import CrateBlock from "../../components/JsonForm/blocks/CrateBlock";
 import IapDefBlock from "../../components/JsonForm/blocks/IapDefBlock";
+import PrizeBlock from "../../components/JsonForm/blocks/PrizeBlock";
 
 @CSSModules(style, { allowMultiple: true, handleNotFoundStyleName: "ignore" })
 export default class NewProduct extends React.Component {
   render() {
     return (
       <div styleName="NewProduct">
+        <JsonForm root={PrizeBlock} />
         <JsonForm root={ProductBlock} />
         <JsonForm root={ChallengeBlock} />
         <JsonForm root={CrateBlock} />
