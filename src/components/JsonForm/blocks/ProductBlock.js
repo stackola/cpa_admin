@@ -20,6 +20,11 @@ let blockConfig = {
       label: "Name"
     },
     {
+      block: StringBlock,
+      name: "aliUrl",
+      label: "URL"
+    },
+    {
       block: TextBlock,
       name: "text",
       label: "Text"

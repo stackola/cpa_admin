@@ -63,7 +63,9 @@ export default class GenericBlock extends Component {
           borderRadius: 4
         }}
       >
-        <div style={{ fontWeight: "bold" }}>{this.state.blockConfig.label}</div>
+        <div style={{ fontWeight: "bold" }}>
+          {this.props.title || this.state.blockConfig.label}
+        </div>
         <div>
           {this.state.blockConfig.fields.map((f, index) => {
             let Block = f.block;

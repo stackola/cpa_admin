@@ -10,6 +10,8 @@ import { MdPlusOne, MdAdd, MdSearch } from "react-icons/md";
 import Home from "../Home";
 import NewProduct from "../NewProduct";
 import NewCrate from "../../components/NewCrate/NewCrate";
+import EditCrate from "../EditCrate/EditCrate";
+import EditProduct from "../EditProduct/EditProduct";
 
 @withRouter
 @CSSModules(style, { allowMultiple: true, handleNotFoundStyleName: "log" })
@@ -60,14 +62,20 @@ export default class AppContainer extends Component {
   render() {
     return this.state.loggedIn ? (
       <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
         <Route path="/newProduct">
           <NewProduct />
         </Route>
         <Route path="/newCrate">
           <NewCrate />
+        </Route>
+        <Route path="/editCrate/:id">
+          <EditCrate />
+        </Route>
+        <Route path="/editProduct/:id">
+          <EditProduct />
+        </Route>
+        <Route>
+          <Home />
         </Route>
       </Switch>
     ) : (

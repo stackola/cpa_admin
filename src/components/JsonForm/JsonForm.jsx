@@ -2,6 +2,8 @@ import React from "react";
 import CSSModules from "react-css-modules";
 import style from "./JsonForm.less";
 
+import firebase from "lib/firebase";
+
 import StringBlock from "./blocks/StringBlock";
 import CollectionBlock from "./blocks/CollectionBlock";
 import NumberBlock from "./blocks/NumberBlock";
@@ -43,6 +45,15 @@ export default class JsonForm extends React.Component {
       }
     );
   }
+  loadItem(item) {
+    firebase
+      .firestore()
+      .doc(item)
+      .get()
+      .then(snap => {
+        this.setState(snap.data());
+      });
+  }
   save() {
     if (this.props.validate) {
       this.props.validate(this.state) &&
@@ -52,11 +63,17 @@ export default class JsonForm extends React.Component {
       this.props.save && this.props.save(this.state);
     }
   }
+  componentDidMount() {
+    if (this.props.preload) {
+      this.loadItem(this.props.preload);
+    }
+  }
   render() {
     let Block = this.props.root;
     return (
       <div styleName="JsonForm">
         <Block
+          title={this.props.title}
           setValue={(k, v, merge) => {
             this.setValue(k, v, merge);
           }}
