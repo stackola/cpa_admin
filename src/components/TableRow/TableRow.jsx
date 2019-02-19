@@ -10,7 +10,11 @@ export default class TableRow extends React.Component {
         <div style={{ width: 30 }}>{this.props.index}</div>
         {this.props.fields.map(fn => {
           return (
-            <div styleName={"field"}>{this.props.data[fn].toString()}</div>
+            <div styleName={"field"}>
+              {this.props.parsers && this.props.parsers[fn]
+                ? this.props.parsers[fn](this.props.data[fn])
+                : this.props.data[fn].toString()}
+            </div>
           );
         })}
       </Link>

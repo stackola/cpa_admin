@@ -69,6 +69,7 @@ export default class FirebaseTable extends React.Component {
               index={index}
               fields={this.props.fields}
               linkTo={this.props.linkTo}
+              parsers={this.props.parsers}
             />
           );
         })}
