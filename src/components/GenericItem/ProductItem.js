@@ -3,6 +3,8 @@ import StringBlock from "./StringBlock";
 import NumberBlock from "./NumberBlock";
 import BoolBlock from "./BoolBlock";
 import GenericItem from "./GenericItem";
+import ShippingOptionItem from "./ShippingOptionItem";
+import CollectionItem from "./CollectionItem";
 export default class ProductItem extends Component {
   render() {
     return (
@@ -48,6 +50,12 @@ export default class ProductItem extends Component {
               block: StringBlock,
               name: "image",
               label: "Image"
+            },
+            {
+              block: CollectionItem,
+              of: ShippingOptionItem,
+              name: "shippingOptions",
+              label: "shippingOptions"
             }
           ]
         }}

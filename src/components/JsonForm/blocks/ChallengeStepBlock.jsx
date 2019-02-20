@@ -24,16 +24,6 @@ let blockConfig = {
       label: "Text"
     },
     {
-      block: BoolBlock,
-      name: "active",
-      label: "Active"
-    },
-    {
-      block: BoolBlock,
-      name: "continous",
-      label: "Continous"
-    },
-    {
       block: NumberBlock,
       name: "order",
       label: "Order"

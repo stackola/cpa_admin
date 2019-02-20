@@ -22,6 +22,9 @@ import Challenges from "../../components/Challenges/Challenges";
 import IapList from "../../components/IapList/IapList";
 import Lists from "../../components/Lists/Lists";
 import Offers from "../../components/Offers/Offers";
+import EditList from "../../components/EditList/EditList";
+import EditConfig from "../../components/EditConfig/EditConfig";
+import EditChallenge from "../EditChallenge/EditChallenge";
 
 @withRouter
 @CSSModules(style, { allowMultiple: true, handleNotFoundStyleName: "log" })
@@ -93,6 +96,9 @@ export default class AppContainer extends Component {
         <Route path="/challenges">
           <Challenges />
         </Route>
+        <Route path="/challenge/:id">
+          <EditChallenge />
+        </Route>
         <Route path="/products">
           <Products />
         </Route>
@@ -108,9 +114,14 @@ export default class AppContainer extends Component {
         <Route path="/lists">
           <Lists />
         </Route>
-
+        <Route path="/list/:id">
+          <EditList />
+        </Route>
         <Route path="/offers">
           <Offers />
+        </Route>
+        <Route path="/config">
+          <EditConfig />
         </Route>
         <Route path="/order/:id">
           <Order />

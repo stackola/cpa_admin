@@ -1,7 +1,16 @@
-Main Lists:
-  
-
-
 Firebase table:
 sort by props
 paginate
+
+
+Item views:
+    User
+    Challenge
+    Crate
+    Transaction
+    Voucher
+    Order
+    Product
+    IAPs + Items
+    Lists
+    Offer

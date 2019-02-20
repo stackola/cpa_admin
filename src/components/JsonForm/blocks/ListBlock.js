@@ -6,12 +6,13 @@ import NumberBlock from "./NumberBlock";
 import ShippingOptionBlock from "./ShippingOptionBlock";
 import GenericBlock from "./GenericBlock";
 import BoolBlock from "./BoolBlock";
+import ImageBlock from "./ImageBlock";
+import OptionsBlock from "./OptionsBlock";
 import TextBlock from "./TextBlock";
-import ChallengeStepBlock from "./ChallengeStepBlock";
 
 let blockConfig = {
-  name: "challenge",
-  label: "New Challenge",
+  name: "product",
+  label: "New Product",
   fields: [
     {
       block: StringBlock,
@@ -20,35 +21,20 @@ let blockConfig = {
     },
     {
       block: StringBlock,
-      name: "trigger",
-      label: "Trigger"
+      name: "id",
+      label: "id"
     },
     {
-      block: BoolBlock,
-      name: "active",
-      label: "Active"
-    },
-    {
-      block: BoolBlock,
-      name: "continous",
-      label: "Continous"
-    },
-    {
-      block: NumberBlock,
-      name: "order",
-      label: "Order"
-    },
-    {
-      name: "steps",
-      label: "Steps",
+      name: "products",
+      label: "Products",
       block: CollectionBlock,
-      of: ChallengeStepBlock,
-      defaultItem: {}
+      of: StringBlock,
+      defaultItem: ""
     }
   ]
 };
 
-export default class ChallengeBlock extends Component {
+export default class ListBlock extends Component {
   render() {
     return <GenericBlock {...this.props} blockConfig={blockConfig} />;
   }

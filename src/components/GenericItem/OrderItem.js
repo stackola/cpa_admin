@@ -5,6 +5,7 @@ import BoolBlock from "./BoolBlock";
 import GenericItem from "./GenericItem";
 import UserItem from "./UserItem";
 import ProductItem from "./ProductItem";
+import ShippingOptionItem from "./ShippingOptionItem";
 export default class OrderItem extends Component {
   render() {
     return (
@@ -64,6 +65,11 @@ export default class OrderItem extends Component {
               block: UserItem,
               name: "user",
               label: "user"
+            },
+            {
+              block: ShippingOptionItem,
+              name: "shippingOption",
+              label: "shippingOption"
             }
           ]
         }}
