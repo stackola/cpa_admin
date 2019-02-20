@@ -18,6 +18,10 @@ import Crates from "../Crates/Crates";
 import User from "../User/User";
 import Orders from "../Orders/Orders";
 import Order from "../Order/Order";
+import Challenges from "../../components/Challenges/Challenges";
+import IapList from "../../components/IapList/IapList";
+import Lists from "../../components/Lists/Lists";
+import Offers from "../../components/Offers/Offers";
 
 @withRouter
 @CSSModules(style, { allowMultiple: true, handleNotFoundStyleName: "log" })
@@ -86,6 +90,9 @@ export default class AppContainer extends Component {
         <Route path="/users">
           <UserList />
         </Route>
+        <Route path="/challenges">
+          <Challenges />
+        </Route>
         <Route path="/products">
           <Products />
         </Route>
@@ -94,6 +101,16 @@ export default class AppContainer extends Component {
         </Route>
         <Route path="/orders">
           <Orders />
+        </Route>
+        <Route path="/iapList">
+          <IapList />
+        </Route>
+        <Route path="/lists">
+          <Lists />
+        </Route>
+
+        <Route path="/offers">
+          <Offers />
         </Route>
         <Route path="/order/:id">
           <Order />

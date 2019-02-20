@@ -32,7 +32,7 @@ export default class GenericItem extends React.Component {
     }
     return (
       <div styleName="GenericItem">
-        <div>{this.props.blockConfig.label}</div>
+        <div style={{ fontWeight: "bold" }}>{this.props.blockConfig.label}</div>
         {this.props.blockConfig.fields.map(b => {
           let B = b.block;
           return <B {...b} data={this.state[b.name]} />;

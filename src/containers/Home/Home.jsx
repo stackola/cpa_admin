@@ -13,6 +13,10 @@ export default class Home extends React.Component {
         <Link to="crates">Crate list</Link>
         <Link to="products">Product list</Link>
         <Link to="orders">Order list</Link>
+        <Link to="challenges">Challenge list</Link>
+        <Link to="iapList">IAPs</Link>
+        <Link to="lists">Lists</Link>
+        <Link to="offers">Offer lists</Link>
       </div>
     );
   }
