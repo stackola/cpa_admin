@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 import firebase from "lib/firebase";
 
+const uuidv1 = require("uuid/v1");
+
 export default class NumberBlock extends Component {
   componentDidMount() {}
   valueChanged(v) {
@@ -12,7 +14,7 @@ export default class NumberBlock extends Component {
     if (file) {
       console.log("file selected");
       var storageRef = firebase.storage().ref();
-      var mountainsRef = storageRef.child("mountains.jpg");
+      var mountainsRef = storageRef.child(uuidv1() + ".jpg");
       mountainsRef.put(file).then(snapshot => {
         console.log("Uploaded a blob or file!", snapshot);
         snapshot.ref.getDownloadURL().then(u => {
@@ -59,7 +61,13 @@ export default class NumberBlock extends Component {
           </div>
         ) : (
           <div>
-            <img style={{ width: 50, height: 50 }} src={this.props.value} />
+            <img
+              style={{ width: 50, height: 50 }}
+              src={this.props.value}
+              onClick={() => {
+                this.valueChanged(null);
+              }}
+            />
           </div>
         )}
       </div>
