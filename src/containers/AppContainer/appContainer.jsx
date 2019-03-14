@@ -7,6 +7,7 @@ import { Route, Link, withRouter, Switch, Redirect } from "react-router-dom";
 import firebase2 from "firebase";
 import { getUID } from "lib";
 import { MdPlusOne, MdAdd, MdSearch } from "react-icons/md";
+
 import Home from "../Home";
 import NewProduct from "../NewProduct";
 import NewCrate from "../../components/NewCrate/NewCrate";
