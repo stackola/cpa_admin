@@ -12,6 +12,7 @@ export default class Home extends React.Component {
         <Link to="/users">User list</Link>
         <Link to="/crates">Crate list</Link>
         <Link to="/products">Product list</Link>
+        <Link to="/newProduct">New Product</Link>
         <Link to="/orders">Order list</Link>
         <Link to="/challenges">Challenge list</Link>
         <Link to="/iapList">IAPs</Link>

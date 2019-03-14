@@ -25,7 +25,7 @@ module.exports = env => {
   });
 
   const cleanPlugin = new CleanWebpackPlugin(
-    ["fb/public/index.html", "fb/public/css", "fb/public/js"],
+    ["docs/index.html", "docs/css", "docs/js"],
     {
       root: __dirname,
       dry: env.NODE_ENV === "local" // Don't delete local files when serving through WDS
@@ -86,7 +86,7 @@ module.exports = env => {
       modules: [path.resolve(__dirname, "src"), "node_modules"]
     },
     output: {
-      path: __dirname + "/fb/public/",
+      path: __dirname + "/docs/",
       publicPath: "",
       filename: "js/main-[hash].js"
     }

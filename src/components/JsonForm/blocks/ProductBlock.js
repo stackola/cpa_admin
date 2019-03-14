@@ -36,7 +36,7 @@ let blockConfig = {
     },
     {
       block: OptionsBlock,
-      options: ["Gadgets", "Fashion", "Technology", "Toys"],
+      options: ["Electronics", "Fashion", "Gadgets", "Jewelery", "Toys"],
       name: "category",
       label: "Category"
     },

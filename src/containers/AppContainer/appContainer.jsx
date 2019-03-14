@@ -40,7 +40,10 @@ export default class AppContainer extends Component {
   componentDidMount() {
     firebase.auth().onAuthStateChanged(a => {
       console.log("THAT CHANGE!", a);
-      if (a.uid == "AqQVcObSssQRkAc5nYTOb2oSbBI3") {
+      if (
+        a.uid == "AqQVcObSssQRkAc5nYTOb2oSbBI3" ||
+        a.uid == "60AYKMf1b5OAFy7nivxSpP3Aazo1"
+      ) {
         this.setState({ loggedIn: true });
       }
     });
